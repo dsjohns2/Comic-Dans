@@ -3,4 +3,4 @@
 cd font
 ./run.sh
 cd ..
-pdflatex document.tex
+pdflatex $1

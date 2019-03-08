@@ -46,6 +46,8 @@ for i in range(97, 123):
         glyph.transform([scale*.8, 0, 0, scale*.8, 0, -ymin])
     elif(i == 122):
         glyph.transform([scale, 0, 0, scale, 0, 0])
+    elif(i == 34):
+        glyph.transform([scale, 0, 0, scale, 0, ymin*3])
     else:
         glyph.transform([scale, 0, 0, scale, 0, -ymin])
 
