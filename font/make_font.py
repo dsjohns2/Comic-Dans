@@ -10,7 +10,7 @@ font.fullname = "ComicDans"
 font.familyname = "ComicDans"
 
 # import svgs
-for i in range(1, 97):
+for i in range(1, 32):
     # create a new glyph with the code point i
     glyph = font.createChar(i)
 
@@ -26,6 +26,31 @@ for i in range(1, 97):
 
     # set glyph side bearings, can be any value or even 0
     glyph.left_side_bearing = glyph.right_side_bearing = 10
+
+# import svgs
+for i in range(32, 33):
+    # create a new glyph with the code point i
+    glyph = font.createChar(i)
+    glyph.width = 400
+
+# import svgs
+for i in range(33, 97):
+    # create a new glyph with the code point i
+    glyph = font.createChar(i)
+
+    # import svg file into it
+    glyph.importOutlines("svg/%s.svg" %i)
+
+    # make the glyph rest on the baseline
+    ymin = glyph.boundingBox()[1]
+    if(i in [34, 39, 42, 96]):
+        glyph.transform([scale, 0, 0, scale, 0, ymin])
+    else:
+        glyph.transform([1, 0, 0, 1, 0, -ymin])
+
+    # set glyph side bearings, can be any value or even 0
+    glyph.left_side_bearing = glyph.right_side_bearing = 10
+
 
 # import svgs
 for i in range(97, 123):
@@ -49,6 +74,8 @@ for i in range(97, 123):
         glyph.transform([scale*.8, 0, 0, scale*.8, 0, -ymin])
     elif(i == 122):
         glyph.transform([scale, 0, 0, scale, 0, 0])
+    elif(i == 110):
+        glyph.transform([scale, 0, 0, scale, 0, ymin*.3])
     else:
         glyph.transform([scale, 0, 0, scale, 0, -ymin])
 
