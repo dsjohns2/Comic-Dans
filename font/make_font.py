@@ -19,7 +19,10 @@ for i in range(1, 97):
 
     # make the glyph rest on the baseline
     ymin = glyph.boundingBox()[1]
-    glyph.transform([1, 0, 0, 1, 0, -ymin])
+    if(i in [34, 39, 42, 96]):
+        glyph.transform([scale, 0, 0, scale, 0, ymin])
+    else:
+        glyph.transform([1, 0, 0, 1, 0, -ymin])
 
     # set glyph side bearings, can be any value or even 0
     glyph.left_side_bearing = glyph.right_side_bearing = 10
@@ -46,8 +49,6 @@ for i in range(97, 123):
         glyph.transform([scale*.8, 0, 0, scale*.8, 0, -ymin])
     elif(i == 122):
         glyph.transform([scale, 0, 0, scale, 0, 0])
-    elif(i == 34):
-        glyph.transform([scale, 0, 0, scale, 0, ymin*3])
     else:
         glyph.transform([scale, 0, 0, scale, 0, -ymin])
 
