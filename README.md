@@ -1,3 +1,5 @@
 # Comic-Dans
 
-My handwritten font
+Authors:
+Dan Johnson
+Ryan Aronson
